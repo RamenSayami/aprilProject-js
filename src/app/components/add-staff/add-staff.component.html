@@ -1,0 +1,27 @@
+<div>
+  <form [formGroup]="addStaffGroup" onsubmit="addStaff()">
+    <div>
+      <label> First Name:</label>
+      <input type="text" formControlName="firstname">
+    </div>
+
+    <div>
+      <label> Last Name:</label>
+      <input type="text" formControlName="lastname">
+    </div>
+
+    <div>
+      <label>Phone Number: </label>
+      <input type="number" formControlName="phonenumber">
+    </div>
+
+<fieldset formGroupName="designation">
+  <label>Position:</label>
+  <input type="text" fromControlName="position">
+
+  <label>Salary:</label>
+  <input type="number" formControlName="salary">
+</fieldset>
+<button type="submit">Add Staff</button>
+</form>
+</div>

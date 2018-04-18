@@ -1,0 +1,7 @@
+<h2> Staffs in database </h2>
+
+<ul>
+  <li *ngFor="let staff of staffs">
+    {{ staff.firstName }} {{staff.lastName}} [ {{ staff.designation.position }} ]
+  </li>
+</ul>
