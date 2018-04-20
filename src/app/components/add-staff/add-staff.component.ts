@@ -23,8 +23,11 @@ export class AddStaffComponent implements OnInit {
     this.formStaff.designation = this.designation;
   }
 
-  addStaff() {
-    console.log(this.formStaff);
-       this.staffService.addStaff( this.formStaff ).subscribe( res => this.staffListServ.staffList.unshift(res) );
+  addStaff(stfFom: NgForm) {
+      console.log('Staff details to add in DB: ');
+      console.log(this.formStaff);
+      this.staffService.addStaff( this.formStaff ).subscribe( res => this.staffListServ.staffList.unshift(res) );
+      stfFom.reset();
+
   }
 }
