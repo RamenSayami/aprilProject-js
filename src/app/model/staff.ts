@@ -5,4 +5,4 @@ export class Staff {
   lastName: String;
   phoneNumber: number;
   designation: Designation;
-}
+  }

@@ -1,28 +1,48 @@
-<div class="container">
-  <form [formGroup]="addStaffGroup" (ngSubmit) = "addStaff()">
+<section class="container">
+  <form #f="ngForm" (ngSubmit)="addStaff()">
 
     <div class="form-group">
       <label> First Name:</label>
-      <input type="text" formControlName="firstname" class="form-control">
+      <input type="text"
+            [(ngModel)]="formStaff.firstName"
+            name = "firstname"
+            class="form-control"
+            >
     </div>
 
     <div class="form-group">
       <label> Last Name:</label>
-      <input type="text" formControlName="lastname" class="form-control">
+      <input type="text"
+              [(ngModel)]="formStaff.lastName"
+              class="form-control"
+              name = "lastname"
+              >
     </div>
 
     <div class="form-group">
       <label>Phone Number: </label>
-      <input type="number" formControlName="phonenumber" class="form-control">
+      <input type="number"
+              [(ngModel)]="formStaff.phoneNumber"
+              class="form-control"
+              name = "phone">
     </div>
 
-    <fieldset formGroupName="designation">
+    <!-- <fieldset formGroupName="designation"> -->
+    <div>
       <label>Position:</label>
-      <input type="text" formControlName="position" >
+      <input type="text"
+              [(ngModel)]="formStaff.designation.position"
+              name = "position">
 
       <label>Salary:</label>
-      <input type="number" formControlName="salary">
-    </fieldset>
-    <button type="submit" class="btn btn-success">Add Staff</button>
+      <input type="number"
+              [(ngModel)]="formStaff.designation.salary"
+              name = "salary">
+      <!-- </fieldset> -->
+    </div>
+    <div>
+    <button type="submit" class="btn btn-success" [disabled]="f.invalid">Add Staff</button>
+
+    </div>
   </form>
-</div>
+</section>

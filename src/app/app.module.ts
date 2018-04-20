@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -10,8 +10,6 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AddStaffComponent } from './components/add-staff/add-staff.component';
 import { StaffListService } from './services/staff-list.service';
-// import { StaffListService } from './services/staff-list.service';
-
 
 @NgModule({
   declarations: [
@@ -24,7 +22,6 @@ import { StaffListService } from './services/staff-list.service';
     BrowserModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [StaffService, StaffListService],

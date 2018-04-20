@@ -27,7 +27,7 @@ export class StaffService {
     return resp;
   }
 
-  addStaff(newStaff) {
+  addStaff(newStaff: Staff  ) {
     console.log('Calling post method...');
 
     const resp = this.http.post<Staff>(this.addNewStaffURL, newStaff);
