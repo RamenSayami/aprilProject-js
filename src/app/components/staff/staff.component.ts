@@ -10,8 +10,6 @@ import { StaffListService } from '../../services/staff-list.service';
 })
 export class StaffComponent implements OnInit {
 
-  // allStaffs: Staff[];
-
   constructor ( public staffService: StaffService,
                 public staffListServ: StaffListService) { }
 
@@ -20,7 +18,6 @@ export class StaffComponent implements OnInit {
   }
 
   clicked() {
-    // this.allStaffs = this.staffList.getStaffs();
   }
 
 }

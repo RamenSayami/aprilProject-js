@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Staff } from '../../model/staff';
 import { StaffService } from '../../services/staff.service';
 import { StaffComponent } from '../staff/staff.component';
@@ -14,48 +13,15 @@ import { Designation } from '../../model/designation';
 })
 export class AddStaffComponent implements OnInit {
 
-  // addStaffGroup: FormGroup;
-  // formBuilder: FormBuilder = new FormBuilder();
-
   designation = new Designation();
   formStaff = new Staff();
-  // addedStaff: Staff;
 
   constructor(private staffService: StaffService,
               public staffListServ: StaffListService) { }
 
   ngOnInit() {
     this.formStaff.designation = this.designation;
-    // this.addStaffGroup = this.formBuilder.group({
-    //   firstname: '',
-    //   lastname: '',
-    //   phonenumber: '',
-    //   designation: this.formBuilder.group({
-    //     position: '',
-    //     salary: ''
-    //   })
-    // });
   }
-
-
-  // addStaff() {
-  //   const staffInfo = this.addStaffGroup.value;
-  //   this.addStaffGroup.reset();
-
-  //   const newStaff: Staff = {
-  //     firstName: staffInfo.firstname,
-  //     lastName: staffInfo.lastname,
-  //     phoneNumber: staffInfo.phonenumber,
-  //     designation: staffInfo.designation
-  //   };
-  //   console.log('Clicked Add button');
-  //   console.log( newStaff);
-
-  //   this.staffService.addStaff( newStaff ).subscribe( res => this.staffListServ.staffList.unshift(res) );
-
-  //   console.log('New Added staff ' + this.addedStaff);
-  // //  this.staffList.add(this.addedStaff);
-  // }
 
   addStaff() {
     console.log(this.formStaff);
