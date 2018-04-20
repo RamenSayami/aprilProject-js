@@ -1,4 +1,4 @@
 export class Designation {
-  position: String;
+  position: string;
   salary: number;
 }

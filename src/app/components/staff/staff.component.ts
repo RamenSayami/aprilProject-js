@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Staff } from '../../model/staff';
 import { StaffService } from '../../services/staff.service';
+import { StaffListService } from '../../services/staff-list.service';
 
 @Component({
   selector: 'app-staff',
@@ -9,12 +10,17 @@ import { StaffService } from '../../services/staff.service';
 })
 export class StaffComponent implements OnInit {
 
-  staffs: Staff[];
+  // allStaffs: Staff[];
 
-  constructor(private staffService: StaffService) { }
+  constructor ( public staffService: StaffService,
+                public staffListServ: StaffListService) { }
 
   ngOnInit() {
-    this.staffService.getAllStaffs().subscribe(staffs => this.staffs = staffs);
+    this.staffService.getAllStaffs().subscribe(res => this.staffListServ.staffList = res);
+  }
+
+  clicked() {
+    // this.allStaffs = this.staffList.getStaffs();
   }
 
 }

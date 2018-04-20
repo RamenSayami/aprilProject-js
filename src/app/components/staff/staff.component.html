@@ -1,7 +1,11 @@
 <h2> Staffs in database </h2>
 
 <ul>
-  <li *ngFor="let staff of staffs">
-    {{ staff.firstName }} {{staff.lastName}} [ {{ staff.designation.position }} ]
+  <li *ngFor="let staff of staffListServ.staffList" class = "list-group-item">
+    {{ staff?.firstName ? staff?.firstName : 'N/a' }} {{staff?.lastName ? staff?.lastName : 'n/a'}}<br>
+    [ {{ staff?.designation?.position ? staff?.designation?.position : 'n/a' }} ]<br>
+    {{ staff?.phoneNumber ? staff?.phoneNumber : 'n/a' }}
   </li>
 </ul>
+
+<button (click)="clicked()">Button</button>

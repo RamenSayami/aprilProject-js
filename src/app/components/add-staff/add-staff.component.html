@@ -1,27 +1,28 @@
-<div>
-  <form [formGroup]="addStaffGroup" onsubmit="addStaff()">
-    <div>
+<div class="container">
+  <form [formGroup]="addStaffGroup" (ngSubmit) = "addStaff()">
+
+    <div class="form-group">
       <label> First Name:</label>
-      <input type="text" formControlName="firstname">
+      <input type="text" formControlName="firstname" class="form-control">
     </div>
 
-    <div>
+    <div class="form-group">
       <label> Last Name:</label>
-      <input type="text" formControlName="lastname">
+      <input type="text" formControlName="lastname" class="form-control">
     </div>
 
-    <div>
+    <div class="form-group">
       <label>Phone Number: </label>
-      <input type="number" formControlName="phonenumber">
+      <input type="number" formControlName="phonenumber" class="form-control">
     </div>
 
-<fieldset formGroupName="designation">
-  <label>Position:</label>
-  <input type="text" fromControlName="position">
+    <fieldset formGroupName="designation">
+      <label>Position:</label>
+      <input type="text" formControlName="position" >
 
-  <label>Salary:</label>
-  <input type="number" formControlName="salary">
-</fieldset>
-<button type="submit">Add Staff</button>
-</form>
+      <label>Salary:</label>
+      <input type="number" formControlName="salary">
+    </fieldset>
+    <button type="submit" class="btn btn-success">Add Staff</button>
+  </form>
 </div>
