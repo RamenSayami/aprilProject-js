@@ -15,18 +15,25 @@ export class AddStaffComponent implements OnInit {
 
   designation = new Designation();
   formStaff = new Staff();
+  serverError: String = 'Server Error! Try again later';
+  showError: Boolean;
 
   constructor(private staffService: StaffService,
               public staffListServ: StaffListService) { }
 
   ngOnInit() {
     this.formStaff.designation = this.designation;
+    this.showError = false;
   }
 
   addStaff(stfFom: NgForm) {
       console.log('Staff details to add in DB: ');
       console.log(this.formStaff);
-      this.staffService.addStaff( this.formStaff ).subscribe( res => this.staffListServ.staffList.unshift(res) );
+      this.staffService.addStaff( this.formStaff )
+        .then( (res: Staff) => {this.staffListServ.staffList.unshift(res); },
+          (err) => {
+            this.showError = true;
+          });
       stfFom.reset();
 
   }
