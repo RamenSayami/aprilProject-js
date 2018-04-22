@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "april14icon.png"
       ],
       "index": "index.html",
       "main": "main.ts",
