@@ -11,12 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddStaffComponent } from './components/add-staff/add-staff.component';
 import { StaffListService } from './services/staff-list.service';
 import { AppRoutingModule } from './app-routing.module';
+import { SearchStaffComponent } from './components/search-staff/search-staff.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StaffComponent,
-    AddStaffComponent
+    AddStaffComponent,
+    SearchStaffComponent
   ],
   imports: [
     BrowserModule,
