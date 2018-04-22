@@ -1,11 +1,26 @@
 <h2> Staffs in database </h2>
-
-<ul class= "list-group-item">
-  <li *ngFor="let staff of staffListServ.staffList" class = "list-group-item">
-    {{ staff?.firstName ? staff?.firstName : 'N/a' }} {{staff?.lastName ? staff?.lastName : 'N/a'}}<br>
-    [ {{ staff?.designation?.position ? staff?.designation?.position : 'N/a' }} ]<br>
-    {{ staff?.phoneNumber ? staff?.phoneNumber : 'N/a' }}
-  </li>
+<!-- <div> -->
+<ul>
+  <div class="list-group-item">
+    <li *ngFor="let staff of staffListServ.staffList" class="list-group-item lister">
+      <!-- <section> -->
+      <!-- <div class="list-group-item"> -->
+      <div class="sub-entry">
+        <!-- <span class="sub-entry"> -->
+        {{ staff?.firstName ? staff?.firstName : 'N/a' }} {{staff?.lastName ? staff?.lastName : 'N/a'}}
+        <br> [ {{ staff?.designation?.position ? staff?.designation?.position : 'N/a' }} ]
+        <br> {{ staff?.phoneNumber ? staff?.phoneNumber : 'N/a' }}
+        <!-- </span> -->
+      </div>
+      <div class="sub-entry">
+        {{ staff?.address ? staff.address.city : 'No City'}} <br>
+        {{ staff?.address ? staff.address.district: 'No District'}} <br>
+        {{ staff?.address ? staff.address.country : 'N/a'}}
+      </div>
+      <!-- </div> -->
+      <!-- </section> -->
+    </li>
+  </div>
 </ul>
-
-<p id = "err" > {{ errorMessage }}</p>
+<!-- </div> -->
+<p id="err"> {{ errorMessage }}</p>

@@ -5,3 +5,17 @@ h2{
 #err {
   color: brown;
 }
+
+.sub-entry {
+  width: 50%;
+  float: left;
+
+}
+
+.lister{
+  height: 80px;
+}
+
+ul{
+  list-style-type: none;
+}

@@ -1,36 +1,51 @@
 <section class="container">
   <form #f="ngForm" (ngSubmit)="addStaff(f)">
+    <div class = "sub-entry">
+      <div class="form-group">
+        <label> First Name:</label>
+        <input type="text" [(ngModel)]="formStaff.firstName" name="firstname" class="form-control">
+      </div>
 
-    <div class="form-group">
-      <label> First Name:</label>
-      <input type="text" [(ngModel)]="formStaff.firstName" name="firstname" class="form-control">
+      <div class="form-group">
+        <label> Last Name:</label>
+        <input type="text" [(ngModel)]="formStaff.lastName" class="form-control" name="lastname">
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number: </label>
+        <input type="number" [(ngModel)]="formStaff.phoneNumber" class="form-control" name="phone">
+      </div>
+
+      <h4> Designation: </h4>
+      <div class="form-group">
+        <label>Position:</label>
+        <input type="text" [(ngModel)]="formStaff.designation.position" class="form-control" name="position">
+
+        <label>Salary:</label>
+        <input type="number" [(ngModel)]="formStaff.designation.salary" name="salary" class="form-control">
+      </div>
     </div>
 
-    <div class="form-group">
-      <label> Last Name:</label>
-      <input type="text" [(ngModel)]="formStaff.lastName" class="form-control" name="lastname">
+    <div class="sub-entry">
+      <h4> Address: </h4>
+
+      <label>Country: </label>
+      <input type="text" [(ngModel)] = "formStaff.address.country" name = "country" class = "form-control" >
+
+      <label>District: </label>
+      <input type="text" [(ngModel)] = "formStaff.address.district" name = "district" class = "form-control" >
+
+      <label>City: </label>
+      <input type="text" [(ngModel)] = "formStaff.address.city" name = "city" class = "form-control" >
+
+      <label>Street: </label>
+      <input type="text" [(ngModel)] = "formStaff.address.street" name = "street" class = "form-control" >
+
+      <div class = "sbmtBtn" >
+        <button type="submit" class="btn btn-success" [disabled]="f.invalid">Add Staff</button>
+        <span *ngIf="showError" class="servErr"> {{ serverError }}</span>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>Phone Number: </label>
-      <input type="number" [(ngModel)]="formStaff.phoneNumber" class="form-control" name="phone">
-    </div>
-
-    <h4> Designation: </h4>
-    <div class="form-group">
-      <label>Position:</label>
-      <input type="text" [(ngModel)]="formStaff.designation.position" class="form-control" name="position">
-
-      <label>Salary:</label>
-      <input type="number" [(ngModel)]="formStaff.designation.salary" name="salary" class="form-control">
-    </div>
-
-    <h4> Address: </h4>
-
-
-    <div>
-      <button type="submit" class="btn btn-success" [disabled]="f.invalid">Add Staff</button>
-      <span *ngIf="showError" class= "servErr" > {{ serverError }}</span>
-    </div>
   </form>
 </section>
