@@ -31,8 +31,11 @@ export class AddStaffComponent implements OnInit {
   }
 
   addStaff(stfFom: NgForm) {
-      console.log('Staff details to add in DB: ');
+      console.log('Staff details from public var: ');
       console.log(this.formStaff);
+
+      console.log('Staff details from ngForm var: ');
+      console.log(stfFom.value);
       this.staffService.addStaff( this.formStaff )
         .then( (res: Staff) => { this.staffListServ.staffList.unshift(  res); },
           (err) => {

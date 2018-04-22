@@ -2,9 +2,12 @@
 h1{
   text-align: center;
 }
-nav{
+.center-links{
   align-content: center;
-  align-self: center;
+}
+nav{
+  width: 100%;
+  text-align: center;
 }
 a {
   text-align: center;
