@@ -13,8 +13,20 @@ export class StaffComponent implements OnInit {
   constructor ( public staffService: StaffService,
                 public staffListServ: StaffListService) { }
 
+  isError: Boolean = false;
+  errorMessage: String = 'ERROR! Problem with the local server';
   ngOnInit() {
-    this.staffService.getAllStaffs().subscribe(res => this.staffListServ.staffList = res);
+    document.getElementById('err').style.display = 'none';
+
+    this.staffService.getAllStaffs()
+      .then((res) => {
+        this.staffListServ.staffList = res;
+      },
+      (err) => {
+        this.isError = true;
+        document.getElementById('err').style.display = 'inline';
+      });
+
   }
 
 }
