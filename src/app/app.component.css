@@ -1,0 +1,18 @@
+
+h1{
+  text-align: center;
+}
+nav{
+  align-content: center;
+  align-self: center;
+}
+a {
+  text-align: center;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}

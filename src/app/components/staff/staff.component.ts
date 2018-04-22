@@ -17,7 +17,4 @@ export class StaffComponent implements OnInit {
     this.staffService.getAllStaffs().subscribe(res => this.staffListServ.staffList = res);
   }
 
-  clicked() {
-  }
-
 }
