@@ -19,21 +19,21 @@ export class StaffService {
 
 
   getAllStaffs(): Promise<Staff[]> {
+    console.log('Get all staff method is called...');
     const resp = this.http.get<Staff[]>(this.getAllStaffURL);
-    // console.log('getAllStaff: ' + JSON.stringify(response));
-    // console.log(response);
-    // const jsonRes = response.map(res => res.json());
+    console.log(resp);
 
+    // console.log('getAllStaff: ' + JSON.stringify(response));
+    // const jsonRes = response.map(res => res.json());
     // console.log('json conversion of getAllStaffs: ' + JSON.stringify(jsonRes));
     return resp.toPromise();
   }
 
-  addStaff(newStaff: Staff  ) {
+  addStaff(newStaff: Staff): Promise<Staff> {
     console.log('Calling post method...');
-
     const resp = this.http.post<Staff>(this.addNewStaffURL, newStaff);
-    console.log('resp');
+    console.log('After Add Staff Post Method is called... ');
     console.log(resp);
-    return resp;
+    return resp.toPromise();
   }
 }

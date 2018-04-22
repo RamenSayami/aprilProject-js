@@ -24,6 +24,7 @@ export class StaffComponent implements OnInit {
       },
       (err) => {
         this.isError = true;
+        console.log(err);
         document.getElementById('err').style.display = 'inline';
       });
 
