@@ -1,6 +1,6 @@
 <h2> Staffs in database </h2>
 
-<ul>
+<ul class= "list-group-item">
   <li *ngFor="let staff of staffListServ.staffList" class = "list-group-item">
     {{ staff?.firstName ? staff?.firstName : 'N/a' }} {{staff?.lastName ? staff?.lastName : 'N/a'}}<br>
     [ {{ staff?.designation?.position ? staff?.designation?.position : 'N/a' }} ]<br>
@@ -8,4 +8,4 @@
   </li>
 </ul>
 
-<button (click)="clicked()">Button</button>
+<p id = "err" > {{ errorMessage }}</p>

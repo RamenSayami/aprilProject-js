@@ -5,6 +5,7 @@ import { Designation } from '../model/designation';
 import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class StaffService {
@@ -17,14 +18,14 @@ export class StaffService {
   constructor( private http: HttpClient) { }
 
 
-  getAllStaffs() {
+  getAllStaffs(): Promise<Staff[]> {
     const resp = this.http.get<Staff[]>(this.getAllStaffURL);
     // console.log('getAllStaff: ' + JSON.stringify(response));
     // console.log(response);
     // const jsonRes = response.map(res => res.json());
 
     // console.log('json conversion of getAllStaffs: ' + JSON.stringify(jsonRes));
-    return resp;
+    return resp.toPromise();
   }
 
   addStaff(newStaff: Staff  ) {
