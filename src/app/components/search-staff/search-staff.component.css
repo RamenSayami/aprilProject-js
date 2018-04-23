@@ -25,3 +25,12 @@ select {
   color: brown;
   text-align: center;
 }
+
+.sub-entry {
+  width: 50%;
+  float: left;
+}
+
+.lister{
+  height: 80px;
+}
