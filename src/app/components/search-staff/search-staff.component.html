@@ -1,7 +1,39 @@
 <h4>Search via Designation</h4>
-
-<select>
-    <option *ngFor="let staff of staffListServ.staffList">
-        {{ staff.firstName }}
-    </option>
+<select [(ngModel)]="selectedDesignation" class="form-control spinner">
+  <option selected disabled value class="selected">Please Select One</option>
+  <option *ngFor="let designation of designationServ.designations" [ngValue]="designation" placeholder="please select" class="select">
+    {{ designation.position }} [ {{ designation.salary }}]
+  </option>
 </select>
+
+<div class="takeupspace">
+  <button type="submit" class="btn btn-success center">Search</button>
+</div>
+<br>
+
+<div class="servErr">
+  <span *ngIf="isError"> {{ errorMessage }}</span>
+</div>
+
+<ul>
+    <div class="list-group-item">
+      <li *ngFor="let staff of designatedStaffs" class="list-group-item lister">
+        <!-- <section> -->
+        <!-- <div class="list-group-item"> -->
+        <div class="sub-entry">
+          <!-- <span class="sub-entry"> -->
+          {{ staff?.firstName ? staff?.firstName : 'N/a' }} {{staff?.lastName ? staff?.lastName : 'N/a'}}
+          <br> [ {{ staff?.designation?.position ? staff?.designation?.position : 'N/a' }} ]
+          <br> {{ staff?.phoneNumber ? staff?.phoneNumber : 'N/a' }}
+          <!-- </span> -->
+        </div>
+        <div class="sub-entry">
+          {{ staff?.address ? staff.address.city : 'No City'}} <br>
+          {{ staff?.address ? staff.address.district: 'No District'}} <br>
+          {{ staff?.address ? staff.address.country : 'N/a'}}
+        </div>
+        <!-- </div> -->
+        <!-- </section> -->
+      </li>
+    </div>
+  </ul>

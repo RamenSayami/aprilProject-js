@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddStaffComponent } from './components/add-staff/add-staff.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchStaffComponent } from './components/search-staff/search-staff.component';
+import { DesignationService } from './services/designation.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { SearchStaffComponent } from './components/search-staff/search-staff.com
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [StaffService],
+  providers: [StaffService, DesignationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
