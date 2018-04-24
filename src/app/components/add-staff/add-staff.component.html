@@ -1,24 +1,38 @@
 <section class="container">
   <form #f="ngForm" (ngSubmit)="addStaff(f)">
-    <div class = "sub-entry">
+    <div class="sub-entry">
       <div class="form-group">
         <label> First Name:</label>
-        <input type="text" [(ngModel)]="formStaff.firstName" name="firstname" class="form-control" required minlength="2" pattern="[A-Za-z]+" >
-        <div>
+        <input type="text" [(ngModel)]="formStaff.firstName" name="firstname" class="form-control" required minlength="2" pattern="[A-Za-z]+"
+          #firstname="ngModel">
+        <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+          <div *ngIf="firstname.errors.required"> First Name is required!</div>
+          <div *ngIf="firstname.errors.minlength">First Name should have atleast 2 character!</div>
+          <div *ngIf="firstname.errors.pattern">Cannot have numbers or other characters!</div>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <label> Last Name:</label>
+        <input type="text" [(ngModel)]="formStaff.lastName" class="form-control" name="lastname" required minlength="2" pattern="[A-Za-z]+"
+          #lastname="ngModel">
+        <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+          <div *ngIf = "lastname.errors.required"> Last Name is required!</div>
+          <div *ngIf = "lastname.errors.minlength">Last Name should have atleast 2 character!</div>
+          <div *ngIf = "lastname.errors.pattern">Cannot have numbers or other characters!</div>
         </div>
       </div>
 
 
 
       <div class="form-group">
-        <label> Last Name:</label>
-        <input type="text" [(ngModel)]="formStaff.lastName" class="form-control" name="lastname" >
-      </div>
-
-      <div class="form-group">
         <label>Phone Number: </label>
-        <input type="number" [(ngModel)]="formStaff.phoneNumber" class="form-control" name="phone">
+        <input type="tel" [(ngModel)]="formStaff.phoneNumber" class="form-control" name="phone" #phone="ngModel" required pattern="^([()\- x+]*\d[()\- x+]*){6,16}">
+        <div *ngIf="phone.invalid && (phone.dirty || phone  .touched)" class="alert alert-danger">
+          <div *ngIf="phone.errors.required">Phone number is required!</div>
+          <div *ngIf="phone.errors.pattern">Invalid phone number!</div>
+
+        </div>
       </div>
 
       <h4> Designation: </h4>
@@ -35,20 +49,21 @@
       <h4> Address: </h4>
 
       <label>Country: </label>
-      <input type="text" [(ngModel)] = "formStaff.address.country" name = "country" class = "form-control" >
+      <input type="text" [(ngModel)]="formStaff.address.country" name="country" class="form-control">
 
       <label>District: </label>
-      <input type="text" [(ngModel)] = "formStaff.address.district" name = "district" class = "form-control" >
+      <input type="text" [(ngModel)]="formStaff.address.district" name="district" class="form-control">
 
       <label>City: </label>
-      <input type="text" [(ngModel)] = "formStaff.address.city" name = "city" class = "form-control" >
+      <input type="text" [(ngModel)]="formStaff.address.city" name="city" class="form-control">
 
       <label>Street: </label>
-      <input type="text" [(ngModel)] = "formStaff.address.street" name = "street" class = "form-control" >
+      <input type="text" [(ngModel)]="formStaff.address.street" name="street" class="form-control">
 
-      <div class = "sbmtBtn" >
+      <div class="sbmtBtn">
         <button type="submit" class="btn btn-success" [disabled]="f.invalid">Add Staff</button>
-        <span *ngIf="showError" class="servErr"> {{ serverError }}</span>
+        <br>
+        <div *ngIf="showError" class="alert alert-danger">{{ serverError }}</div>
       </div>
     </div>
 
