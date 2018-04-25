@@ -26,7 +26,7 @@
       <div class="form-group">
         <label>Phone Number: </label>
         <input type="tel" [(ngModel)]="formStaff.phoneNumber" class="form-control" name="phone" #phone="ngModel" required pattern="^([()\- x+]*\d[()\- x+]*){6,16}">
-        <div *ngIf="phone.invalid && (phone.dirty || phone  .touched)" class="alert alert-danger">
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
           <div *ngIf="phone?.errors.required">Phone number is required!</div>
           <div *ngIf="phone?.errors.pattern">Invalid phone number!</div>
 
@@ -36,30 +36,38 @@
       <h4> Designation: </h4>
       <div class="form-group">
         <label>Position:</label>
-        <input type="text" [(ngModel)]="formStaff.designation.position" class="form-control" name="position" #position="ngModel" required>
+        <input type="text" [(ngModel)]="formStaff.designation.position" class="form-control" required name="position" #position="ngModel">
+        <div *ngIf="position.invalid && (position.dirty || position.touched)" class="alert alert-danger">
+          <div *ngIf="position?.errors.required">Position is required</div>
+        </div>
+      </div>
 
-        <div *ngIf="position?.errors.required && position.touched" class="alert alert-danger">Position is required</div>
-
-
+      <div class="form-group">
         <label>Salary:</label>
-        <input type="number" [(ngModel)]="formStaff.designation.salary" name="salary" class="form-control" #salary = "ngModel" required>
-        <div *ngIf = "salary?.errors.required && salary.touched" class="alert alert-danger">Please enter the salary</div>
+        <input type="number" [(ngModel)]="formStaff.designation.salary" name="salary" class="form-control" #salary="ngModel" required>
+        <!-- <div *ngIf="salary.invalid && (salary.dirty || salary.touched)" class="alert alert-danger"> -->
+        <div *ngIf="salary?.errors.required && salary?.touched" class="alert alert-danger">Please enter the salary</div>
       </div>
     </div>
+    <!-- </div> -->
 
     <div class="sub-entry">
       <h4> Address: </h4>
 
       <label>Country: </label>
-      <input type="text" [(ngModel)]="formStaff.address.country" name="country" class="form-control" #country = "ngModel" required>
-      <div *ngIf="country?.errors.required && country.touched" class="alert alert-danger">Country is Mandatory.</div>
+
+      <select [(ngModel)]="formStaff.address.country" class="form-control spinner">
+        <option *ngFor="let country of countries" [ngValue]="country.name" placeholder="please select" class="select">
+          {{ country.name }}
+        </option>
+      </select>
 
       <label>District: </label>
       <input type="text" [(ngModel)]="formStaff.address.district" name="district" class="form-control">
 
       <label>City: </label>
-      <input type="text" [(ngModel)]="formStaff.address.city" name="city" class="form-control" #district = "ngModel" required>
-      <div *ngIf = "district?.errors.required && district.touched" class="alert alert-danger">City is Mandatory</div>
+      <input type="text" [(ngModel)]="formStaff.address.city" name="city" class="form-control" #district="ngModel" required>
+      <div *ngIf="district?.errors.required && district.touched" class="alert alert-danger">City is Mandatory</div>
       <label>Street: </label>
       <input type="text" [(ngModel)]="formStaff.address.street" name="street" class="form-control">
 

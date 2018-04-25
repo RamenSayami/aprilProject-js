@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Validator, FormsModule} from '@angular/forms';
+// import { Validator, FormsModule} from '@angular/forms';
 import { Staff } from '../../model/staff';
 import { StaffService } from '../../services/staff.service';
 import { StaffComponent } from '../staff/staff.component';
 import { NgForm } from '@angular/forms';
 import { Designation } from '../../model/designation';
 import { Address } from '../../model/address';
+import { COUNTRIES } from '../../model/countries';
+import { Country } from '../../model/country';
 
 @Component({
   selector: 'app-add-staff',
@@ -20,6 +22,8 @@ export class AddStaffComponent implements OnInit {
 
   serverError: String = 'Server Error! Try again later';
   showError: Boolean;
+
+  countries: Country[] = COUNTRIES;
 
   constructor(private staffService: StaffService) { }
 
@@ -41,6 +45,6 @@ export class AddStaffComponent implements OnInit {
             this.showError = true;
           });
       stfFom.reset();
-
   }
+
 }
