@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Validator, FormsModule} from '@angular/forms';
 import { Staff } from '../../model/staff';
 import { StaffService } from '../../services/staff.service';
 import { StaffComponent } from '../staff/staff.component';

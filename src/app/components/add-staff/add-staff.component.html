@@ -6,9 +6,9 @@
         <input type="text" [(ngModel)]="formStaff.firstName" name="firstname" class="form-control" required minlength="2" pattern="[A-Za-z]+"
           #firstname="ngModel">
         <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
-          <div *ngIf="firstname.errors.required"> First Name is required!</div>
-          <div *ngIf="firstname.errors.minlength">First Name should have atleast 2 character!</div>
-          <div *ngIf="firstname.errors.pattern">Cannot have numbers or other characters!</div>
+          <div *ngIf="firstname?.errors.required"> First Name is required!</div>
+          <div *ngIf="firstname?.errors.minlength">First Name should have atleast 2 character!</div>
+          <div *ngIf="firstname?.errors.pattern">Cannot have numbers or other characters!</div>
         </div>
       </div>
 
@@ -17,20 +17,18 @@
         <input type="text" [(ngModel)]="formStaff.lastName" class="form-control" name="lastname" required minlength="2" pattern="[A-Za-z]+"
           #lastname="ngModel">
         <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
-          <div *ngIf = "lastname.errors.required"> Last Name is required!</div>
-          <div *ngIf = "lastname.errors.minlength">Last Name should have atleast 2 character!</div>
-          <div *ngIf = "lastname.errors.pattern">Cannot have numbers or other characters!</div>
+          <div *ngIf="lastname?.errors.required"> Last Name is required!</div>
+          <div *ngIf="lastname?.errors.minlength">Last Name should have atleast 2 character!</div>
+          <div *ngIf="lastname?.errors.pattern">Cannot have numbers or other characters!</div>
         </div>
       </div>
-
-
 
       <div class="form-group">
         <label>Phone Number: </label>
         <input type="tel" [(ngModel)]="formStaff.phoneNumber" class="form-control" name="phone" #phone="ngModel" required pattern="^([()\- x+]*\d[()\- x+]*){6,16}">
         <div *ngIf="phone.invalid && (phone.dirty || phone  .touched)" class="alert alert-danger">
-          <div *ngIf="phone.errors.required">Phone number is required!</div>
-          <div *ngIf="phone.errors.pattern">Invalid phone number!</div>
+          <div *ngIf="phone?.errors.required">Phone number is required!</div>
+          <div *ngIf="phone?.errors.pattern">Invalid phone number!</div>
 
         </div>
       </div>
@@ -38,10 +36,14 @@
       <h4> Designation: </h4>
       <div class="form-group">
         <label>Position:</label>
-        <input type="text" [(ngModel)]="formStaff.designation.position" class="form-control" name="position">
+        <input type="text" [(ngModel)]="formStaff.designation.position" class="form-control" name="position" #position="ngModel" required>
+
+        <div *ngIf="position?.errors.required && position.touched" class="alert alert-danger">Position is required</div>
+
 
         <label>Salary:</label>
-        <input type="number" [(ngModel)]="formStaff.designation.salary" name="salary" class="form-control">
+        <input type="number" [(ngModel)]="formStaff.designation.salary" name="salary" class="form-control" #salary = "ngModel" required>
+        <div *ngIf = "salary?.errors.required && salary.touched" class="alert alert-danger">Please enter the salary</div>
       </div>
     </div>
 
@@ -49,14 +51,15 @@
       <h4> Address: </h4>
 
       <label>Country: </label>
-      <input type="text" [(ngModel)]="formStaff.address.country" name="country" class="form-control">
+      <input type="text" [(ngModel)]="formStaff.address.country" name="country" class="form-control" #country = "ngModel" required>
+      <div *ngIf="country?.errors.required && country.touched" class="alert alert-danger">Country is Mandatory.</div>
 
       <label>District: </label>
       <input type="text" [(ngModel)]="formStaff.address.district" name="district" class="form-control">
 
       <label>City: </label>
-      <input type="text" [(ngModel)]="formStaff.address.city" name="city" class="form-control">
-
+      <input type="text" [(ngModel)]="formStaff.address.city" name="city" class="form-control" #district = "ngModel" required>
+      <div *ngIf = "district?.errors.required && district.touched" class="alert alert-danger">City is Mandatory</div>
       <label>Street: </label>
       <input type="text" [(ngModel)]="formStaff.address.street" name="street" class="form-control">
 
