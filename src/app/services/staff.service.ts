@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 import { Staff } from '../model/staff';
 import { Designation } from '../model/designation';
@@ -8,15 +8,18 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class StaffService {
+export class StaffService implements OnInit {
 
   private getAllStaffURL = 'http://localhost:8080/aprilProject-web/api/worker/getAllStaffs';
   private addNewStaffURL = 'http://localhost:8080/aprilProject-web/api/worker/add';
 
-  staffs: Staff[];
+  staffList: Staff[];
 
   constructor( private http: HttpClient) { }
 
+  ngOnInit() {
+    this.getAllStaffs();
+  }
 
   getAllStaffs(): Promise<Staff[]> {
     console.log('Get all staff method is called...');

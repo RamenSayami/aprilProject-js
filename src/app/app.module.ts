@@ -9,14 +9,16 @@ import { StaffService } from './services/staff.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AddStaffComponent } from './components/add-staff/add-staff.component';
-import { StaffListService } from './services/staff-list.service';
 import { AppRoutingModule } from './app-routing.module';
+import { SearchStaffComponent } from './components/search-staff/search-staff.component';
+import { DesignationService } from './services/designation.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     StaffComponent,
-    AddStaffComponent
+    AddStaffComponent,
+    SearchStaffComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [StaffService, StaffListService],
+  providers: [StaffService, DesignationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

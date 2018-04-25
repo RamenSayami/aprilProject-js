@@ -1,0 +1,36 @@
+h4 {
+  text-align: center;
+}
+
+select {
+  display: block;
+  margin: 0 auto;
+}
+
+.takeupspace{
+  width: auto;
+  text-align: center;
+}
+
+.center{
+  align-content: center;
+}
+
+.spinner{
+  width: auto;
+  margin-bottom: .5%;
+}
+
+.servErr {
+  color: brown;
+  text-align: center;
+}
+
+.sub-entry {
+  width: 50%;
+  float: left;
+}
+
+.lister{
+  height: 80px;
+}

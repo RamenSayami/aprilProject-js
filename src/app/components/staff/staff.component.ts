@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Staff } from '../../model/staff';
 import { StaffService } from '../../services/staff.service';
-import { StaffListService } from '../../services/staff-list.service';
 
 @Component({
   selector: 'app-staff',
@@ -10,8 +9,7 @@ import { StaffListService } from '../../services/staff-list.service';
 })
 export class StaffComponent implements OnInit {
 
-  constructor ( public staffService: StaffService,
-                public staffListServ: StaffListService) { }
+  constructor ( public staffService: StaffService) { }
 
   isError: Boolean = false;
   errorMessage: String = 'ERROR! Problem with the local server';
@@ -20,7 +18,7 @@ export class StaffComponent implements OnInit {
 
     this.staffService.getAllStaffs()
       .then((res) => {
-        this.staffListServ.staffList = res;
+        this.staffService.staffList = res;
       },
       (err) => {
         this.isError = true;
