@@ -40,7 +40,7 @@ export class AddStaffComponent implements OnInit {
       console.log('Staff details from ngForm var: ');
       console.log(stfFom.value);
       this.staffService.addStaff( this.formStaff )
-        .then( (res: Staff) => { this.staffService.staffList.unshift(  res); },
+        .then( (res: Staff) => { this.staffService.staffList.unshift(res); },
           (err) => {
             this.showError = true;
           });

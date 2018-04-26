@@ -44,30 +44,29 @@
 
       <div class="form-group">
         <label>Salary:</label>
-        <input type="number" [(ngModel)]="formStaff.designation.salary" name="salary" class="form-control" #salary="ngModel" required>
-        <!-- <div *ngIf="salary.invalid && (salary.dirty || salary.touched)" class="alert alert-danger"> -->
-        <div *ngIf="salary?.errors.required && salary?.touched" class="alert alert-danger">Please enter the salary</div>
+        <input type="number" [(ngModel)]="formStaff.designation.salary" name="salary" class="form-control" #salary="ngModel" required >
+        <div *ngIf="salary?.errors?.required && salary.touched" class="alert alert-danger">Please enter the salary</div>
       </div>
     </div>
-    <!-- </div> -->
 
     <div class="sub-entry">
       <h4> Address: </h4>
 
       <label>Country: </label>
 
-      <select [(ngModel)]="formStaff.address.country" class="form-control spinner">
+      <select [(ngModel)]="formStaff.address.country" name="country" class="form-control spinner" #country="ngModel">
         <option *ngFor="let country of countries" [ngValue]="country.name" placeholder="please select" class="select">
           {{ country.name }}
         </option>
       </select>
+      <div *ngIf="country?.errors?.required && country.touched" class="alert alert-danger">Please select a country</div>
 
       <label>District: </label>
       <input type="text" [(ngModel)]="formStaff.address.district" name="district" class="form-control">
 
       <label>City: </label>
-      <input type="text" [(ngModel)]="formStaff.address.city" name="city" class="form-control" #district="ngModel" required>
-      <div *ngIf="district?.errors.required && district.touched" class="alert alert-danger">City is Mandatory</div>
+      <input type="text" [(ngModel)]="formStaff.address.city" name="city" class="form-control" #district="ngModel" required >
+      <div *ngIf="district?.errors?.required && district?.touched" class="alert alert-danger">City is Mandatory</div>
       <label>Street: </label>
       <input type="text" [(ngModel)]="formStaff.address.street" name="street" class="form-control">
 
