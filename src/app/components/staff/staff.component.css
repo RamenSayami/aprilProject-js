@@ -7,13 +7,27 @@ h2{
 }
 
 .sub-entry {
-  width: 50%;
+  width: 45%;
   float: left;
+  padding-top: 4px;
+}
+
+.side-buttons{
+  width : 10%;
+  float: right;
+}
+
+.edit-del-btns{
+  height: 33px;
+  width: 100%;
+  margin-top: 1px;
+  margin-right: 4px;
 
 }
 
 .lister{
   height: 80px;
+  padding: 4px;
 }
 
 ul{

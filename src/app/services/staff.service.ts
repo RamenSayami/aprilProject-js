@@ -12,6 +12,7 @@ export class StaffService implements OnInit {
 
   private getAllStaffURL = 'http://localhost:8080/aprilProject-web/api/worker/getAllStaffs';
   private addNewStaffURL = 'http://localhost:8080/aprilProject-web/api/worker/add';
+  private deleteStaffURL = 'http://localhost:8080/aprilProject-web/api/worker/delete/';
 
   staffList: Staff[];
 
@@ -37,6 +38,11 @@ export class StaffService implements OnInit {
     const resp = this.http.post<Staff>(this.addNewStaffURL, newStaff);
     console.log('After Add Staff Post Method is called... ');
     console.log(resp);
+    return resp.toPromise();
+  }
+
+  deleteStaffWithId(id: Number) {
+    const resp = this.http.delete(this.deleteStaffURL + id);
     return resp.toPromise();
   }
 }

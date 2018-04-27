@@ -7,7 +7,9 @@
   float: left;
   margin: 2%;
 }
-
+.alert-heignt{
+  padding: 5px;
+}
 .lister{
   height: 80px;
 }
